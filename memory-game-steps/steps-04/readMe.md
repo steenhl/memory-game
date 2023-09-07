@@ -15,35 +15,65 @@
 
 # Description
 
-We now need to be able to shuffle our cards so they come in a more random order
+Plan
 
-## Shuffle cards
+- Adding click event to each card
+- Check if two cards are identical
+- If the cards are identical remove click event from both cards
 
-1. Create a empty `array let cardArra = []`;
-2. Inside the createCards function and inside the for loop, comment out the two function calls to
-   insertHtml(`<li class="card" data-card=${i}><span class="front">Card number ${i}</span></li>`)
-3. Now use the array.push function to insert the htmlString into the cardArray
-   - `cardArra.push(li)`
-4. Create a new function to handle the insertion of list items
-   - `function insertCard(cardList) {}`
-   - inside the insertCard function use a loop to insert the cards
-   - e.g. `cardList.forEach((card) => {})`
+## Inside the `insertHtml(htmlString){}` function
 
-### The cards we have now inserted is not shuffle and we need a shuffle function
+### Query the last inserted card
 
-5. **Shuffle function link**
-   - underscore libraries [https://cdnjs.com/libraries/underscore.js]
-   - underscorejs org [https://underscorejs.org/]
-6. Use the "underscore.js" library link and insert the script tag into the html before any other script tag
-   - `<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-min.js"> </script>`
-7. Shuffle the cards array
-   - Inside the **createCards** function and after the for loop use the shuffle function
-   - e.g. `_.shuffle(cardArra)`
-   - The underscore sign **\_** is a call to the library and when we use the `_.shuffle(array)` The shuffle function
-     from "underscore" returns a new shuffled array
+> - after `cardsWrapper.insertAdjacentHTML("beforeend", htmlString);`
+> - use the **cardsWrapper** to select the last inserted card
+> - `cardsWrapper.querySelector("li:last-of-type")`
+> - Create a variable "li", and apply the value of the above query
 
-> function createCards(numberOfCars) {<br>
->
-> for () {}<br> let shuffleCarsArray = \_.shuffle(cardArra);<br> insertCard(shuffleCarsArray);<br>}
+### Adding click event
+
+> - add a click event handler to the li variable
+> - element.addEventListener("???", handleClick);
+> - Eventlistneren tager to parametre
+> - The first parameter to addEventListener(**parameter1**, parameter2) defines the type of event to listen for
+> - The second parameter addEventListener(parameter1, **parameter2**) is the name of a function to be called when the
+>   card is clicked
+
+## Handle click
+
+> - Create a function with the name handleClick
+> - The function takes one _parameter_ the click event
+> - function handleClick(event) {}
+> - Create a variable withe the currentTarget of the event
+> - `let card = event.currentTarget`
+> - use `console.log(card)` to see the result
+
+### Check if two cards are identical
+
+We need to keep track of how many times the user click
+
+> - If the user has clicked twice in a row, we need to check if the two card are identical
+> - One way to do this is to keep the result of the number of clicks in a variable
+> - Create a variable outside the function and each time the user click a card increment the variable with one
+> - e.g. `let numberOfClick`
+> - **Inside the handelClick function**, user the console.log() function to see the result of the increment
+> - e.g `console.log(the name of the variable)`
+> - If the user has clicked twice reset the value of the variable
+
+#### compare the value of two cards
+
+To get the value of a card we can use the card data-attribute
+
+> - `<li class="card" data-card="0"><span class="front">Card number 0</span></li>`
+> - The html \<li> has a attribute data-card="value"
+> - We can use the function currentTarget and getAttribute() to achieve this
+> - `let data = event.currentTarget.getAttribute("data-card");`
+
+##### Try to find out how how you can compare two card
+
+> - You have to use som variables
+> - And you could use the previously created condition, but you will have to extend it with some more condition
+
+---
 
    </div>

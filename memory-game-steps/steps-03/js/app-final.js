@@ -18,6 +18,7 @@ function createCards(numberOfCars) {
 	let shuffleCarsArray = _.shuffle(cardArra);
 	insertCard(shuffleCarsArray);
 }
+// insert card
 function insertCard(cardList) {
 	cardList.forEach((card) => {
 		insertHtml(card);

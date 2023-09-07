@@ -44,6 +44,6 @@ We now need to be able to shuffle our cards so they come in a more random order
 
 > function createCards(numberOfCars) {<br>
 >
-> for () {}<br> let shuffleCarsArray = \_.shuffle(cardArra);<br> insertCard(shuffleCarsArray);<br>}
+> for (let i = 0;i < ???; i++) {}<br> let shuffleCarsArray = \_.shuffle(cardArra);<br> insertCard(???);<br>}
 
    </div>
