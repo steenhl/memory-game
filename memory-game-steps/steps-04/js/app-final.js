@@ -20,7 +20,7 @@ let card2Data = null;
 // Handle function
 function handleClick(event) {
 	let card = event.currentTarget;
-	let data = event.currentTarget.getAttribute("data-card");
+	let data = card.getAttribute("data-card");
 
 	numberOfClicked++;
 

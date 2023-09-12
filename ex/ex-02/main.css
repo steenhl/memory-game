@@ -1,0 +1,6 @@
+#names {
+	background-color: aqua;
+}
+#names li:nth-of-type(odd) {
+	color: brown;
+}

@@ -7,7 +7,9 @@ listItems.forEach((elm) => liArray.push(elm));
 // add the names
 liArray.forEach((elm) => {
 	let data = elm.getAttribute("data-person");
-	// new
+	console.log(elm);
+	namesArray.push(data);
 });
+// console.log(namesArray.sort());
 
 // new
